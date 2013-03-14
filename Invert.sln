@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Invert", "Invert\Invert.csproj", "{F63F93F2-AC60-41A0-B1E0-2637F3685ADF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Invert_Specs", "Invert_Specs\Invert_Specs.csproj", "{00138FE2-9785-4C37-BC5D-627FDE325510}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F63F93F2-AC60-41A0-B1E0-2637F3685ADF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F63F93F2-AC60-41A0-B1E0-2637F3685ADF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F63F93F2-AC60-41A0-B1E0-2637F3685ADF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F63F93F2-AC60-41A0-B1E0-2637F3685ADF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00138FE2-9785-4C37-BC5D-627FDE325510}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00138FE2-9785-4C37-BC5D-627FDE325510}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00138FE2-9785-4C37-BC5D-627FDE325510}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00138FE2-9785-4C37-BC5D-627FDE325510}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
