@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Invert.Contracts;
 using Invert.Types;
 
 namespace Invert {
@@ -17,12 +16,15 @@ namespace Invert {
             return _instance ?? (_instance = new PubSub());
         }
 
-        public void Subscribe<T>(IHandle<T> handler) {
+        public void Subscribe(object handler) {
             var interfaces = handler.GetType().GetInterfaces().Where(i => i.IsGenericType);
 
             foreach (var iFace in interfaces) {
                 var type = iFace.GetGenericArguments()[0];
                 var method = iFace.GetMethod("Handle");
+
+                if (type == null || method == null)
+                    continue;
 
                 if (!_handlers.ContainsKey(type))
                     _handlers.Add(type, new List<HandlerWrapper>());
@@ -33,7 +35,7 @@ namespace Invert {
             }
         }
 
-        public void Unsubscribe<T>(IHandle<T> handler) {
+        public void Unsubscribe(object handler) {
             var interfaces = handler.GetType().GetInterfaces().Where(i => i.IsGenericType);
 
             foreach (var type in interfaces.Select(i => i.GetGenericArguments()[0])) {
@@ -47,6 +49,9 @@ namespace Invert {
 
         public void Publish<T>(T message) {
             var type = message.GetType();
+            if (!_handlers.ContainsKey(type))
+                return;
+
             var supportedHandlers = _handlers[type];
 
             foreach (var handler in supportedHandlers) {
